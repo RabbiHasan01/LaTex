@@ -1,0 +1,225 @@
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+\definecolor{mountainmeadow}{rgb}{0.19, 0.73, 0.56}
+\usecolortheme[named=mountainmeadow]{structure}
+
+\begin{document}
+
+\title{Matrix Chain Multiplication Algorithm}
+\subtitle{CSE-411:Assignment }
+\author{Rabbi Hasan}
+\institute{ID:19701071}
+%www.rabbihasan.cu@gmail.com
+\date{\today}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+ 
+\begin{frame}[t]{Algorithm-411}
+\vspace{ 15 pt}
+\begin{center} {\textbf{Solution 15.2.1}}
+
+\end{center}
+Dimensions : p0=5,p1=10,p2=3,p3=12\\p4=5,p5=50,p6=6\\
+And matrices \\A1=5*10\\A2=10*3\\A3=3*12\\A4=12*5 \\A5=5*50
+
+\end{frame}
+
+\begin{frame}{Contents}
+\begin{itemize}
+%\end{itemize}
+\item Dynamic programming procedure.
+\item Matrix Chain Multiplication Algorithm.
+\item Minimum number of scaler multiplication.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Algorithm-411}
+\vspace{15 pt}
+
+\begin{block}{Determine the structure.}
+\vspace{10pt}
+ A sequence of matrices  A\textsubscript{i..........j} where\\ A\textsubscript{i..........j}= A\textsubscript{1}A\textsubscript{2}........A\textsubscript{k}A\textsubscript{k+1}.........A\textsubscript{j-1}A\textsubscript{j} is defined by another two subsequence are denoted as  A\textsubscript{i..........k}= A\textsubscript{1}A\textsubscript{2}...........A\textsubscript{k} and \\A\textsubscript{k+1...........j}=  A\textsubscript{k+1}...........A\textsubscript{j-1}A\textsubscript{j}\\
+
+\end{block}
+\end{frame}
+
+
+\begin{frame}[t]{Algorithm-411}
+\vspace{ 15 pt}
+
+ 
+\begin{block}{Minimum number of scaler multiplication}
+ 
+m[i,j]=0 ; if i=j \\
+m[i,j]=min\textsubscript{$(i<=k<j)$}(m[i,k]+m[k=1,j]+p\textsubscript{(i-1)}*p\textsubscript{k}*p\textsubscript{j}); if $i<j$  
+\end{block}
+
+\vspace{15 pt}
+\textbf{Recursive procedure : }\\
+m[1,1] = m[2,2] = m[3,3] = m[4,4] = m[5,5] = m[6,6] = 0 \\.\\
+
+\textcolor{blue}{m[1,2]} =m[1,1] + m[2,2]+ p0*p1*p2 = 5*10*3 = 150\\
+
+\textcolor{blue}{m[2,3]} = m[2,2]+m[3,3]+p1*p2*p3 = 10*3*12 = 360\\
+
+\textcolor{blue}{m[3,4]} =m[3,3] + m[4,4]+ p2*p3*p4 = 3*12*5 = 180\\
+
+\textcolor{blue}{m[4,5]} =m[4,4] + m[5,5]+ p3*p4*p5 = 12*5*50 = 3000\\
+
+\textcolor{blue}{m[5,6]} =m[5,5] + m[6,6] + p4*p5*p6 = 5*50*6 = 1500\\
+\end{frame}
+
+\begin{frame}[t]{Algorithm-411}
+\vspace{15 pt}
+\textcolor{blue}{m[1,3]} = m[1,1] + m[2,3] + p0p1p3 \\ = 0 + 10*3*12 + 5*10*12 =  0+360+600= 960\\
+
+ =  m[1,2] + m[3,3] + p0p2p3 \\= 150 + 0 + 5*3*12 = 150+0+180= 330 \\
+=min(960,330)=330,at k=2\\.\\
+
+\textcolor{blue}{m[2,4]} =  m[2,2] + m[3,4] + p1p2p4 \\ = 0 + 180 + 10*3*5 = 180 + 150 = 330 \\
+  =  m[2,3] + m[4,4] + p2p3p4  \\= 360 + 3*12*5 = 360 + 180 = 540\\
+=min(580,330)=330,at k=2  
+ 
+
+\end{frame}
+
+\begin{frame}[t]{Algorithm-411}
+\vspace{15 pt}
+\textcolor{blue}{m[3,5]} =  m[3,3] + m[4,5] + p2p3p5\\ = 0 + 3000 + 3x12x50 = 3000 + 1800 = 4800  
+
+=m[3,4] + m[5,5] + p2p4p5\\ = 180 + 0 + 3*5*50 = 180 + 750 = 930  
+=min(4800,930)=930,at k=2 \\.\\
+
+\textcolor{blue}{m[4,6]}=m[4,4] + m[5,6] + p3p4p6\\ = 0 + 1500 + 12*5*6 =  1860  
+
+=m[4,5] + m[6,6] + p3p5p6\\ = 3000 + 0 +  12*50*6   = 6600\\  
+=min 1860,at k=2 
+\end{frame}
+
+\begin{frame}[t]{Algorithm-411}
+\vspace{15 pt}
+\textcolor{blue}{m[1,4]} =  m[1,1] + m[2,4] + p0p1p4 \\ = 0 + 330 + 5x10x5 = 330 + 250 = 580\\
+ =m[1,2] + m[3,4] + p0p2p4\\ =150 + 180 + 5*3*5 = 150+180+75 = 405  \\
+
+   =  m[1,3] + m[4,4] + p0p3p4  \\ = 330 + 0 + 5+12*5 = 330 + 300 = 630\\
+   =min(630,405,580)=405 ,at k=3\\.\\
+   
+\textcolor{blue}{ m[2,5]} =  m[2,2] + m[3,5] + p1p2p5\\ =   0 + 930 + 10*3*50 = 930 + 1500 = 2430 , at k=2  
+
+\end{frame}
+
+\begin{frame}[t]{Algorithm-411}
+\vspace{15 pt}
+
+\textcolor{blue}{m[3,6]} =  m[3,3] + m[4,6] + p2p3p6\\ = 0 + 1860 + 3*12*6 = 1860 + 216 = 2076 \\
+
+ m[3,4] + m[5,6] + p2p4p6\\ = 180 + 1500 + 3x5x6 = 1680 + 90 = 1770 \\
+
+ m[3,5] + m[6,6] + p2p5p6\\ = 930 + 0 + 3*50*6 = 930 + 900 = 1830 \\
+ =min 1770 , at k=4\\.\\
+ 
+\textcolor{blue}{m[1,5]} = m[1,1] + m[2,5] + p0p1p5\\  = 0 + 2430 + 5*10*50 = 2430 + 2500 = 4930
+m[1,5] = {min{m[1,2] + m[3,5] + p0p2p5}} = 150 + 930 + 5*3*50 = 1080 + 750 = 1830
+
+ m[1,3] + m[4,5] + p0p3p5\\ = 330 + 3000 + 5*12*50 = 3330 + 3000 = 6330
+
+ m[1,4] + m[5,5] + p0p4p5\\ = 405 + 0 + 5*5*50 = 405 + 1250 = 1655 \\
+ =min(1655,6330,1830,4930)=1630, at k=4
+
+\end{frame}
+
+
+\begin{frame}[t]{Algorithm-411}
+\vspace{15 pt}
+
+\textcolor{blue} {m[2,6]} =  m[2,2] + m[3,6] + p1p2p6\\ = 0 + 1770 + 10*3*6 = 1770 + 180 = 1950 \\
+
+ m[2,3] + m[4,6] + p1p3p6\\ = 360 + 1860 + 10*12*6 = 2220 + 720 = 2940
+
+ m[2,4] + m[5,6] + p1p4p6\\ = 330 + 1500 + 10*5*6 = 1830 + 300 = 2130
+
+ m[2,5] + m[6,6] + p1p5p6  \\= 2430 + 0 + 1*50*6 = 2430 + 3000 = 5430\\
+= min 1950,at k=2
+
+\end{frame}
+
+
+\begin{frame}[t]{Algorithm-411}
+\vspace{15 pt}
+
+\textcolor{blue} {m[1,6]} = m[1,1] + m[2,6] + p0p1p6\\  = 0 + 1950 + 5*10*6 = 1950 + 300 = 2250\\
+ =m[1,2] + m[3,6] + p0p2p6\\ = 150 + 1770 + 5*3*6 = 1920 + 90 = 2010  \\
+
+ =m[1,3] + m[4,6] + p0p3p6\\ = 330 + 1860 + 5*12*6 = 2190 + 360 = 2550
+
+ =m[1,4] + m[5,6] + p0p4p6\\ = 405 + 1500 + 5*5*6 = 1905 + 150 = 2055
+ =m[1,5] + m[6,6] + p0p5p6\\ = 1655 + 0 + 5*50*6 = 1655 + 1500 = 3155\\
+ 
+=min 2010 ,at k=2
+\end{frame}
+
+
+\begin{frame}[t]{Algorithm-411}
+\vspace{15 pt}
+
+%\begin{center}
+\begin{block}
+{M table } 
+ 
+\begin{tabular}{ccccccc}
+m[i,j] & 1& 2 &3 &4 &5 &6 \\
+1 & 0 & 150 &330 &405 &1655 &2010 \\
+2 &  &0 &360 &330 &2430 &1950 \\
+3 &  &  &0 &180 &930 &1770 \\
+4 &  &  &   &0  &3000 &1860 \\
+5 &  &  &   &   &0   &1500 \\
+6 &  &  &   &   &    &0 \\
+
+\end{tabular}
+
+\end{block}
+\footnote{\textit{(N.B: i= row, j= column)}}
+
+%\end{center}
+
+\end{frame}
+
+\begin{frame}[t]{Algorithm-411}
+\vspace{15 pt}
+  
+\begin{block}
+{K table } 
+ 
+\begin{tabular}{ccccccc}
+s[i,j] & 1& 2 &3 &4 &5 &6 \\
+1 &  & 1 &2 &2 &4 &2 \\
+2 &  &  &2 &2 &2 &2 \\
+3 &  &  &  &3 &4 &4 \\
+4 &  &  &   &  &4 &4 \\
+5 &  &  &   &   &   &5 \\
+6 &  &  &   &   &    & \\
+
+\end{tabular}
+
+\end{block}
+\footnote{ \textit{(N.B: i= row, j= column)}}\\
+%\footnote{i=row,j=column}\\
+Minimum cost multiplication sequence is (A1A2)(A3A4)(A5A6).
+
+ 
+ 
+\end{frame}
+\begin{frame}{Algorithm-411}
+\begin{center}
+\textbf{Thank you}  \\
+Contract emails: www.rabbihasan.cu@gmail.com
+\end{center}
+\end{frame}
+ 
+\end{document}
+ 
