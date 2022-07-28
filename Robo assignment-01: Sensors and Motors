@@ -1,0 +1,181 @@
+
+\documentclass[10pt]{beamer}
+%\mode<presentation>{}
+
+\usepackage{media9}
+\usepackage{amssymb,amsmath,amsthm,enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage[parfill]{parskip}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{bm}
+\usepackage{amsfonts,amscd}
+\usepackage[]{units}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{tcolorbox}
+\usepackage{physics}
+
+
+\usetheme{Warsaw}
+\definecolor{mountainmeadow}{rgb}{0.19, 0.73, 0.56}
+\usecolortheme[named=mountainmeadow]{structure}
+
+\begin{document}
+
+\title{Assignment 01}
+%\subtitle{CSE-411:Assignment }
+\author{Rabbi Hasan}
+\institute{Robotics Camp 2022 \newline
+Batch 22107 \newline
+Chittagong University. }
+ 
+\date{\today}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Contents}
+\begin{itemize}
+%\end{itemize}
+\item Light Sensor.
+\item Temperature Sensor.
+\item Fire sensor.
+\item Obstacle sensor.
+\item Motion sensor.
+\item Led Lamp.
+\item Buzzer.
+\item DC Motor.
+\item Geared motor.
+\item Water Pump.
+\end{itemize}
+\end{frame}
+\begin{frame}{Light Sensor}
+\begin{itemize}
+
+\item Detect the presence of light.
+\item Measure illuminance.
+\item Respond to changes in the
+amount of light received.
+\item Convert light to electricity.
+\end{itemize}
+\end{frame}
+\begin{frame}{Temperature Sensor}
+    \begin{itemize}
+        \item Provides temperature
+measurement in a readable
+form through an electrical
+signal.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Fire sensor}
+\begin{itemize}
+    \item Use MWIR infrared (IR) cameras.
+\item Detect heat.
+\item Detect hot-spots.
+\item These cameras can be used in
+complete darkness and operate
+both inside and outside.
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Obstacle sensor}
+
+\begin{itemize}
+    \item Detect Obstacle
+\item Consists of an infrared
+transmitter, an infrared receiver
+and a potentiometer.
+\item These sensors can measure the
+distance between your car and
+nearby obstacles directly around
+the front or rear bumper.
+\end{itemize}
+    
+\end{frame}
+\begin{frame}{Motion sensor}
+    \begin{itemize}
+        \item Designed to detect and
+measure movement.
+\item Motion sensors are used
+primarily in home and
+business security systems.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Led Lamp}
+\begin{itemize}
+    \item LED means light-emitting
+diodes.
+\item It is a solid-state lighting
+(SSL) device
+\item LED technology that are
+used-DIP, SMD and COB.
+\item It produces
+light using light-emitting
+diodes (LEDs).
+\end{itemize}
+    
+\end{frame}
+\begin{frame}{Buzzer}
+\begin{itemize}
+    \item A buzzer or beeper is
+an audio signaling
+device.
+\item convert audio
+signals into sound
+signals.
+\item It is usually powered
+by DC voltage.
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{DC Motor}
+\begin{itemize}
+    \item Converts direct
+current (DC)
+electrical energy into
+mechanical energy.
+\item William Sturgeon
+invented the first DC
+motor in 1886.
+\end{itemize}
+    
+\end{frame}
+\begin{frame}{Geared motor}
+    \begin{itemize}
+        \item A geared motor is a
+component whose
+mechanism adjusts
+the speed of the
+motor, leading them
+to operate at a
+certain speed.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Water Pump}
+\begin{itemize}
+    \item It use a motor to
+convert rotational
+energy or kinetic energy
+and turn it into energy
+for moving fluid or for
+fluid flow(hydrodynamic
+energy).
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Assignment-01}
+\begin{center}
+       \includegraphics[]{tnx.jpg}
+\end{center}
+  
+\end{frame}
+
+\end{document}
